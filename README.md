@@ -22,4 +22,5 @@ Assume that the phrases do not contain pipe.
 
 Example line may look like:
 Foobar Candy | Olympics 2012 | PGA | CNET | Microsoft Bing
+
 The above line has 5 phrases in visible region.
