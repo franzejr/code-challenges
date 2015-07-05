@@ -1,5 +1,4 @@
 # code-challenges
 
-Talk is cheap. Show me the code. :metal:
+WalletHub code Challenge
 
-* [Merchant Galaxy](../../tree/merchant-galaxy) - Ruby
