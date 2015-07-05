@@ -3,11 +3,13 @@ package com.franzejr.wallethubchallenge.palindrome;
 public class Palindrome {
 
 	/*
-	 * Recursive function to check if a word is palindrome. 
+	 * Recursive function to check if a word is palindrome.
+	 * 
+	 * Complexity: O(nlogn)
 	 * 
 	 * @param word String - any String
 	 * 
-	 * @return boolean saying if the word is palindrome or not 
+	 * @return boolean saying if the word is palindrome or not
 	 */
 	public static boolean isPalindromeRecursive(String word) {
 		if (word.length() == 0 || word.length() == 1)
@@ -19,6 +21,8 @@ public class Palindrome {
 
 	/*
 	 * Function to check if a word is palindrome.
+	 * 
+	 * Complexity: O(n)
 	 * 
 	 * @param word String - any string
 	 * 
