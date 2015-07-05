@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.franzejr.wallethubchallenge.palindrome.KComplementary;
+import com.franzejr.wallethubchallenge.kcomplementary.KComplementary;
 
 public class KComplementaryTest {
 

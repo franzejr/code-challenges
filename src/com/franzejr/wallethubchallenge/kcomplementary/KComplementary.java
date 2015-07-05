@@ -1,4 +1,4 @@
-package com.franzejr.wallethubchallenge.palindrome;
+package com.franzejr.wallethubchallenge.kcomplementary;
 
 import java.util.HashMap;
 import java.util.Map;
