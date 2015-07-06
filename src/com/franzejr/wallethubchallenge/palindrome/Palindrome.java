@@ -5,7 +5,7 @@ public class Palindrome {
 	/*
 	 * Recursive function to check if a word is palindrome.
 	 * 
-	 * Complexity: O(nlogn)
+	 * Complexity: O(n)
 	 * 
 	 * @param word String - any String
 	 * 
