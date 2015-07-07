@@ -18,7 +18,36 @@ Example:   initcap(UNITED   states   Of   AmERIca   )   =   United   States   Of
 */
 
 
+-- Function   to   capitalize   the   first   letter   of   a   word   in   a   given   string
 
+DROP FUNCTION IF EXISTS ucline;
+DELIMITER $$
+CREATE FUNCTION ucline(line TEXT) 
+RETURNS TEXT
+BEGIN
+  SET @oldString := line;
+  SET @newString := "";
+ 
+  tokenLoop: LOOP
+ 
+    SET @splitPoint := LOCATE(" ", @oldString);
+ 
+    IF @splitPoint = 0 THEN
+      SET @newString := CONCAT(@newString, ucfirst(@oldString));
+      LEAVE tokenLoop;
+    END IF;
+ 
+    SET @newString := CONCAT(@newString, ucfirst(SUBSTRING(@oldString, 1, @splitPoint)));
+    SET @oldString := SUBSTRING(@oldString, @splitPoint+1);
+  END LOOP tokenLoop;
+ 
+  RETURN @newString;
+END;
+$$
+DELIMITER ;
+
+
+-- Function to capitalize just the first letter in a word
 DROP FUNCTION IF EXISTS ucfirst;
  
 DELIMITER $$
@@ -29,3 +58,4 @@ BEGIN
 END;
 $$
 DELIMITER ;
+
