@@ -25,7 +25,7 @@ DELIMITER $$
 CREATE FUNCTION ucline(line TEXT) 
 RETURNS TEXT
 BEGIN
-  SET @oldString := line;
+  SET @oldString := lcase(line);
   SET @newString := "";
  
   tokenLoop: LOOP
@@ -54,7 +54,7 @@ DELIMITER $$
 CREATE FUNCTION ucfirst(str_value TEXT)
 RETURNS TEXT
 BEGIN
-    return CONCAT(ucase(substr(str_value, 1,1)), lcase(substr(str_value, 2)));
+    return CONCAT(ucase(substr(str_value, 1,1)), substr(str_value, 2));
 END;
 $$
 DELIMITER ;
