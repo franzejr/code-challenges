@@ -1,6 +1,6 @@
 # code-challenges
 
-WalletHub code Challenge
+WalletHub Code Challenge
 
 
 #### JAVA
