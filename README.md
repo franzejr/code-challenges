@@ -35,7 +35,8 @@ INSERT INTO votes VALUES
 ('Smith',10), ('Jones',15), ('White',20), ('Black',40), ('Green',50), ('Brown',20);
 ```
 
-2)Write a function to capitalize the first letter of a word in a given string;
+2)Write a function to capitalize the first letter of a word in a given string.
+
 Example:
 
 ```sql
