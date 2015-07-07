@@ -35,7 +35,14 @@ INSERT INTO votes VALUES
 ('Smith',10), ('Jones',15), ('White',20), ('Black',40), ('Green',50), ('Brown',20);
 ```
 
-2)Write a procedure in MySQL to split a column into rows using a delimiter.
+2)Write a function to capitalize the first letter of a word in a given string;
+Example:
+
+```sql
+initcap(UNITED   states   Of   AmERIca   )   =   United   States   Of   America
+```
+
+3)Write a procedure in MySQL to split a column into rows using a delimiter.
 
 ```sql
 CREATE   TABLE   sometbl   (   ID   INT,   NAME   VARCHAR(50)   );   
