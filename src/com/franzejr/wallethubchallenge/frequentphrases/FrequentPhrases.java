@@ -6,10 +6,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+/*
+ * There are some important aspects to pay attention
+ * The HashMap size needs to be >= number of distinct phrases
+ */
 public class FrequentPhrases implements Map<String, Integer> {
 
 	private int MAX = 10000;
-	private Map<String, Integer> map;
+	public Map<String, Integer> map;
 
 	public FrequentPhrases() {
 		map = new HashMap<String, Integer>();
@@ -26,6 +30,8 @@ public class FrequentPhrases implements Map<String, Integer> {
 	public void add(String phrase) {
 		if (this.containsKey(phrase)) {
 			put(phrase, this.get(phrase) + 1);
+		}else{
+			put(phrase, 1);
 		}
 	}
 
@@ -47,8 +53,7 @@ public class FrequentPhrases implements Map<String, Integer> {
 	}
 
 	public Integer get(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+		return map.get(key);
 	}
 
 	public Integer remove(Object key) {
@@ -79,17 +84,17 @@ public class FrequentPhrases implements Map<String, Integer> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public String toString() {
 		String s = "";
-		
-		 Iterator it = map.entrySet().iterator();
-		    while (it.hasNext()) {
-		        Map.Entry pair = (Map.Entry)it.next();
-		        s += pair.getKey() + " = " + pair.getValue();
-		    }
-		
+
+		Iterator it = map.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry pair = (Map.Entry) it.next();
+			s += pair.getKey() + " = " + pair.getValue();
+		}
+
 		return s;
 	}
 
