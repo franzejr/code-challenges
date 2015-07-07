@@ -69,3 +69,31 @@ INSERT   INTO   sometbl   VALUES      (1,   'Smith'),      (2,   'Julio|Jones|Fa
 'White|Snow'),      (4,   'Paint|It|Red'),      (5,   'Green|Lantern'),      (6,   'Brown|bag');
 For   (3),   example   rows   would   look   like   >>   “3,   white”,   “3,   Snow”   …
 */
+
+DROP FUNCTION IF EXISTS ucline;
+DELIMITER $$
+CREATE FUNCTION ucline(line TEXT, id TEXT) 
+RETURNS TEXT
+BEGIN
+  SET @oldString := line;
+  SET @newString := "";
+ 
+  tokenLoop: LOOP
+ 
+    SET @splitPoint := LOCATE("|", @oldString);
+ 
+    IF @splitPoint = 0 THEN
+      SET @newString := CONCAT(@newString, ucfirst(@oldString));
+      LEAVE tokenLoop;
+    END IF;
+ 
+    SET @newString := CONCAT(CONCAT(id,", "), @oldString);
+    SET @oldString := SUBSTRING(@oldString, @splitPoint+1);
+  END LOOP tokenLoop;
+ 
+  RETURN @newString;
+END;
+$$
+DELIMITER ;
+
+
