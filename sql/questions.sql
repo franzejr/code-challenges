@@ -70,28 +70,29 @@ INSERT   INTO   sometbl   VALUES      (1,   'Smith'),      (2,   'Julio|Jones|Fa
 For   (3),   example   rows   would   look   like   >>   “3,   white”,   “3,   Snow”   …
 */
 
-DROP FUNCTION IF EXISTS ucline;
+DROP FUNCTION IF EXISTS split;
 DELIMITER $$
-CREATE FUNCTION ucline(line TEXT, id TEXT) 
+CREATE FUNCTION split(line TEXT, id TEXT) 
 RETURNS TEXT
 BEGIN
   SET @oldString := line;
-  SET @newString := "";
+  SET @returnString := "";
  
   tokenLoop: LOOP
  
     SET @splitPoint := LOCATE("|", @oldString);
  
     IF @splitPoint = 0 THEN
-      SET @newString := CONCAT(@newString, ucfirst(@oldString));
+      SET @returnString := CONCAT(CONCAT(@returnString,CONCAT(id,", ")), SUBSTRING(@oldString, 1, @splitPoint));
       LEAVE tokenLoop;
     END IF;
  
-    SET @newString := CONCAT(CONCAT(id,", "), @oldString);
-    SET @oldString := SUBSTRING(@oldString, @splitPoint+1);
+
+    SET @returnString := CONCAT(CONCAT(@returnString,CONCAT(id,", ")), SUBSTRING(@oldString, 1, @splitPoint));
+    SET @oldString := SUBSTRING(@oldString, @splitPoint , LENGTH(@oldString));
   END LOOP tokenLoop;
  
-  RETURN @newString;
+  RETURN @returnString;
 END;
 $$
 DELIMITER ;
