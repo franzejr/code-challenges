@@ -23,20 +23,21 @@ public class FrequentPhrasesTest {
 
 	@Test
 	public void test() {
-			Map<String, Integer> result = FrequentPhrases.execute("textfile.txt",9);
+			Map<String, Integer> result = FrequentPhrases.execute("sample.txt", 9);
 			System.out.println(result.toString());
 	}
 	
 	
 	@Test
-	public void testSorByValue(){
+	public void testSortByValue(){
 		HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
 		hashMap.put("A", 4);
 		hashMap.put("B", 3);
 		hashMap.put("C", 2);
 		
 		
-		HashMap<String, Integer> sorted = (HashMap<String, Integer>) FrequentPhrases.sortByValues(hashMap);
+		HashMap<String, Integer> sorted = (HashMap<String, Integer>) FrequentPhrases.sortByValues(hashMap, 9);
+		
 		System.out.println(sorted.toString());
 		
 		Entry<String, Integer> entry = sorted.entrySet().iterator().next();

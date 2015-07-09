@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -58,11 +59,13 @@ public class FrequentPhrases {
 			e.printStackTrace();
 		}
 
-		return sortByValues(frequents);
+
+		return sortByValues(frequents, memorySize);
 	}
 
 	public static <K extends Comparable, V extends Comparable> Map<K, V> sortByValues(
-			Map<K, V> map) {
+			Map<K, V> map, int memorySize) {
+		
 		List<Map.Entry<K, V>> entries = new LinkedList<Map.Entry<K, V>>(
 				map.entrySet());
 
@@ -79,6 +82,7 @@ public class FrequentPhrases {
 		for (Map.Entry<K, V> entry : entries) {
 			sortedMap.put(entry.getKey(), entry.getValue());
 		}
+		
 
 		return sortedMap;
 
