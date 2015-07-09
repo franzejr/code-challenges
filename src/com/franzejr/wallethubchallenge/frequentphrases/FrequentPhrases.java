@@ -10,10 +10,10 @@ import java.util.Set;
  * There are some important aspects to pay attention
  * The HashMap size needs to be >= number of distinct phrases
  */
-public class FrequentPhrases implements Map<String, Integer> {
+public class FrequentPhrases implements Map<String, Integer>, Comparable<FrequentPhrases> {
 
 	private int MAX = 10000;
-	public Map<String, Integer> map;
+	private Map<String, Integer> map;
 
 	public FrequentPhrases() {
 		map = new HashMap<String, Integer>();
@@ -48,8 +48,7 @@ public class FrequentPhrases implements Map<String, Integer> {
 	}
 
 	public boolean containsValue(Object value) {
-		// TODO Auto-generated method stub
-		return false;
+		return map.containsValue(value);
 	}
 
 	public Integer get(Object key) {
@@ -57,13 +56,11 @@ public class FrequentPhrases implements Map<String, Integer> {
 	}
 
 	public Integer remove(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+		return map.remove(key);
 	}
 
 	public void putAll(Map<? extends String, ? extends Integer> m) {
-		// TODO Auto-generated method stub
-
+		map.putAll(m);
 	}
 
 	public void clear() {
@@ -71,18 +68,15 @@ public class FrequentPhrases implements Map<String, Integer> {
 	}
 
 	public Set<String> keySet() {
-		// TODO Auto-generated method stub
-		return null;
+		return map.keySet();
 	}
 
 	public Collection<Integer> values() {
-		// TODO Auto-generated method stub
-		return null;
+		return map.values();
 	}
 
 	public Set<java.util.Map.Entry<String, Integer>> entrySet() {
-		// TODO Auto-generated method stub
-		return null;
+		return map.entrySet();
 	}
 
 	@Override
@@ -92,10 +86,20 @@ public class FrequentPhrases implements Map<String, Integer> {
 		Iterator it = map.entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry pair = (Map.Entry) it.next();
-			s += pair.getKey() + " = " + pair.getValue();
+			s += pair.getKey() + " = " + pair.getValue() + "\n";
 		}
 
 		return s;
+	}
+
+	public int compareTo(FrequentPhrases o) {
+		if(this.map.get(o) < o.get(o)){
+			return -1;
+		}
+		if(this.map.get(o) > o.get(o)){
+			return 1;
+		}
+		return 0;
 	}
 
 }
