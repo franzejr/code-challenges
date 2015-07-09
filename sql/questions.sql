@@ -82,15 +82,20 @@ BEGIN
  
     SET @splitPoint := LOCATE("|", @oldString);
  
+	SET @id_comma := CONCAT(id,", ");
+
  	 -- Special case for the last one
     IF @splitPoint = 0 THEN
-      SET @returnString := CONCAT(CONCAT(@returnString,CONCAT(id,", ")), SUBSTRING(@oldString, 1, @splitPoint));
+	  SET @insideString := CONCAT(@id_comma, CONCAT(SUBSTRING(@oldString, 1, LENGTH(@oldString))));
+	  SET @insideString := CONCAT(CONCAT("\"",@insideString),"\"");
+	  SET @returnString := CONCAT(@returnString, @insideString);
       LEAVE tokenLoop;
     END IF;
  
-
-    SET @returnString := CONCAT(CONCAT(@returnString,CONCAT(id,", ")), SUBSTRING(@oldString, 1, @splitPoint));
-    -- SET @oldString := SUBSTRING(@oldString, @splitPoint , LENGTH(@oldString));
+	SET @insideString := CONCAT(@id_comma, CONCAT(SUBSTRING(@oldString, 1, @splitPoint-1)));
+	SET @insideString := CONCAT(CONCAT("\"",@insideString),"\"");
+    SET @returnString := CONCAT(CONCAT(@returnString, @insideString), ",");
+    SET @oldString := SUBSTRING(@oldString, @splitPoint +1, LENGTH(@oldString));
   END LOOP tokenLoop;
  
   RETURN @returnString;
