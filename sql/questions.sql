@@ -113,7 +113,17 @@ that day. For   example,   a   bug is open   on   “2012-01-01”,   if   it’
 before “2012-01-01” and  closed on  or  after  “2012-01-02”.  I  want  a  SQL   to   show   
 number   of   bugs   open   for a range of dates.
 
+
+<= initial 
+> final
+
 */
 
 
 CREATE TABLE bug (id INT,   open_date DATE,   close_date DATE,   severity INT);
+
+insert into bug values(1,"2015-07-01", "2015-07-10", 0); 
+insert into bug values(2,"2015-07-11", "2015-07-20", 0); 
+
+SELECT COUNT(*) FROM bug WHERE open_date <= '2015-07-01' AND close_date > '2015-07-2';
+
