@@ -62,3 +62,19 @@ that day.
 For   example, a bug is open  on  “2012-01-01”, if it’s created on or
 before “2012-01-01” and  closed on  or  after  “2012-01-02”. I  want a SQL to show 
 number of bugs open for a range of dates.
+
+### How to setup
+We're using maven to build the application. Clone this repository or download the zip file.
+
+```
+mvn install
+```
+Or you can just import the project in your Eclipse. It will also works like a charm.
+
+### Running Tests
+jUnit was used, to run all the tests:
+
+```
+mvn clean compile test
+```
+Or using Eclipse, you can go directly to each file and run the test manually.
