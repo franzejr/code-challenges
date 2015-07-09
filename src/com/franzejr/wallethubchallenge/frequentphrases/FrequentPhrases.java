@@ -1,105 +1,89 @@
 package com.franzejr.wallethubchallenge.frequentphrases;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.Map.Entry;
 
 /*
- * There are some important aspects to pay attention
- * The HashMap size needs to be >= number of distinct phrases
+ * Frequent Phrases
  */
-public class FrequentPhrases implements Map<String, Integer>, Comparable<FrequentPhrases> {
+public class FrequentPhrases {
 
-	private int MAX = 10000;
-	private Map<String, Integer> map;
+	/*
+	 * This function reads from a file. The file needs to follow the pattern:
+	 * 
+	 * <WORD> | <WORD> | <WORD>
+	 * 
+	 * The file has 50 phrases per line separated by a pipe (|). Assume that the
+	 * phrases do not contain pipe. Each of <WORD> will be ranked and as return,
+	 * we will have a hashmap with each phrase and the number of times it
+	 * appears in the entire file.
+	 * 
+	 * @param String file name
+	 * 
+	 * @return @HashMap which contains the phrases ranked
+	 */
+	public static Map<String, Integer> execute(String textFileName) {
+		PhraseHashMap frequents = new PhraseHashMap();
+		FileInputStream fstream;
+		try {
+			fstream = new FileInputStream(textFileName);
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					fstream));
 
-	public FrequentPhrases() {
-		map = new HashMap<String, Integer>();
-	}
+			String strLine;
 
-	public Integer put(String key, Integer value) {
-		if (map.size() >= MAX && !map.containsKey(key)) {
-			return -1;
-		}
-		map.put(key, value);
-		return value;
-	}
+			while ((strLine = br.readLine()) != null) {
+				// Splitting all the words
+				String[] phrases = strLine.split("\\|");
 
-	public void add(String phrase) {
-		if (this.containsKey(phrase)) {
-			put(phrase, this.get(phrase) + 1);
-		}else{
-			put(phrase, 1);
-		}
-	}
+				// Iterates over each phrase
+				for (int i = 0; i < phrases.length; i++) {
+					// Adding the phrase in the hashmap
+					frequents.add(phrases[i]);
+				}
+			}
 
-	public int size() {
-		return map.size();
-	}
-
-	public boolean isEmpty() {
-		return map.isEmpty();
-	}
-
-	public boolean containsKey(Object key) {
-		return map.containsKey(key);
-	}
-
-	public boolean containsValue(Object value) {
-		return map.containsValue(value);
-	}
-
-	public Integer get(Object key) {
-		return map.get(key);
-	}
-
-	public Integer remove(Object key) {
-		return map.remove(key);
-	}
-
-	public void putAll(Map<? extends String, ? extends Integer> m) {
-		map.putAll(m);
-	}
-
-	public void clear() {
-		map.clear();
-	}
-
-	public Set<String> keySet() {
-		return map.keySet();
-	}
-
-	public Collection<Integer> values() {
-		return map.values();
-	}
-
-	public Set<java.util.Map.Entry<String, Integer>> entrySet() {
-		return map.entrySet();
-	}
-
-	@Override
-	public String toString() {
-		String s = "";
-
-		Iterator it = map.entrySet().iterator();
-		while (it.hasNext()) {
-			Map.Entry pair = (Map.Entry) it.next();
-			s += pair.getKey() + " = " + pair.getValue() + "\n";
+			br.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
-		return s;
+		return sortByValues(frequents);
 	}
 
-	public int compareTo(FrequentPhrases o) {
-		if(this.map.get(o) < o.get(o)){
-			return -1;
+	public static <K extends Comparable, V extends Comparable> Map<K, V> sortByValues(
+			Map<K, V> map) {
+		List<Map.Entry<K, V>> entries = new LinkedList<Map.Entry<K, V>>(
+				map.entrySet());
+
+		Collections.sort(entries, new Comparator<Map.Entry<K, V>>() {
+
+			public int compare(Entry<K, V> o1, Entry<K, V> o2) {
+				return o1.getValue().compareTo(o2.getValue());
+			}
+
+		});
+
+		Map<K, V> sortedMap = new LinkedHashMap<K, V>();
+
+		for (Map.Entry<K, V> entry : entries) {
+			sortedMap.put(entry.getKey(), entry.getValue());
 		}
-		if(this.map.get(o) > o.get(o)){
-			return 1;
-		}
-		return 0;
+
+		return sortedMap;
+
 	}
 
 }
