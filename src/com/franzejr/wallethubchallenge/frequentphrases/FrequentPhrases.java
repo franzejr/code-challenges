@@ -43,12 +43,8 @@ public class FrequentPhrases {
 			String strLine;
 
 			while ((strLine = br.readLine()) != null) {
-				// Splitting all the words
 				String[] phrases = strLine.split("\\|");
-
-				// Iterates over each phrase
 				for (int i = 0; i < phrases.length; i++) {
-					// Adding the phrase in the hashmap
 					frequents.add(phrases[i]);
 				}
 			}
