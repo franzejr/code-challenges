@@ -23,7 +23,7 @@ public class FrequentPhrasesTest {
 
 	@Test
 	public void test() {
-			Map<String, Integer> result = FrequentPhrases.execute("textfile.txt");
+			Map<String, Integer> result = FrequentPhrases.execute("textfile.txt",9);
 			System.out.println(result.toString());
 	}
 	

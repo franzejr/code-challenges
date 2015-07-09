@@ -30,10 +30,12 @@ public class FrequentPhrases {
 	 * 
 	 * @param String file name
 	 * 
+	 * @param int memory Size - how much our memory can fit
+	 * 
 	 * @return @HashMap which contains the phrases ranked
 	 */
-	public static Map<String, Integer> execute(String textFileName) {
-		PhraseHashMap frequents = new PhraseHashMap();
+	public static Map<String, Integer> execute(String textFileName, int memorySize) {
+		PhraseHashMap frequents = new PhraseHashMap(memorySize);
 		FileInputStream fstream;
 		try {
 			fstream = new FileInputStream(textFileName);

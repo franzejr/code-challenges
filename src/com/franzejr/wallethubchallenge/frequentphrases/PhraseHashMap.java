@@ -23,11 +23,12 @@ public class PhraseHashMap implements Map<String, Integer>,
 	 * This variable represent the length of my HashMap. In the question it says
 	 * the memory is fixed
 	 */
-	private int MAX = 10000;
+	private int MAX;
 	private Map<String, Integer> map;
 
-	public PhraseHashMap() {
+	public PhraseHashMap(int hashMapSize) {
 		map = new HashMap<String, Integer>();
+		this.MAX = hashMapSize;
 	}
 
 	/*
