@@ -13,6 +13,8 @@ public class Main {
 	 * questions
 	 */
 	public static void main(String[] args) {
+		
+		System.out.println("WalletHub Code Challenge");
 		/*
 		 * 
 		 * Palindrome Algorithm
@@ -38,7 +40,8 @@ public class Main {
 		 */
 		int[] firstSet = { 1, 5, 9, 4 };
 		System.out.println("The following array [ 1, 5, 9, 4 ] has how many 10-complementary pairs?");
-		int result = KComplementary.howMany(10, firstSet);
+		KComplementary kComplementary = new KComplementary(10, firstSet);
+		int result = kComplementary.howMany();
 		System.out.println("It has "+ result + " pairs");
 		System.out.println("====================================");
 		
@@ -47,12 +50,11 @@ public class Main {
 		 * Frequent Phrases in a file
 		 * 
 		 */
-		System.out.println("The File sample.txt");
-		Map<String, Integer> frequents = FrequentPhrases.execute("sample.txt", 10000);
+		System.out.println("The File sample.txt has the following phrases");
+		FrequentPhrases frequents = new FrequentPhrases("textfile.txt", 10000);
+		Map<String, Integer> topRankedPhrases = frequents.execute();
 		System.out.println(frequents.toString());
-		
-		
-		
+
 
 	}
 }

@@ -18,6 +18,14 @@ import java.util.Map.Entry;
  * Frequent Phrases
  */
 public class FrequentPhrases {
+	
+	private String textFileName;
+	private int memorySize;
+	
+	public FrequentPhrases(String textFileName, int memorySize){
+		this.textFileName = textFileName;
+		this.memorySize = memorySize;
+	}
 
 	/*
 	 * This function reads from a file. The file needs to follow the pattern:
@@ -29,13 +37,15 @@ public class FrequentPhrases {
 	 * we will have a hashmap with each phrase and the number of times it
 	 * appears in the entire file.
 	 * 
+	 * I'm assuming that a line and phrase fit in memory.
+	 * 
 	 * @param String file name
 	 * 
 	 * @param int memory Size - how much our memory can fit
 	 * 
 	 * @return @HashMap which contains the phrases ranked
 	 */
-	public static Map<String, Integer> execute(String textFileName, int memorySize) {
+	public Map<String, Integer> execute() {
 		PhraseHashMap frequents = new PhraseHashMap(memorySize);
 		FileInputStream fstream;
 		try {
@@ -62,7 +72,23 @@ public class FrequentPhrases {
 
 		return sortByValues(frequents, memorySize);
 	}
+	
+	@Override
+	public String toString() {
+		String returnedString = "";
+		HashMap<String, Integer> s = (HashMap<String, Integer>) execute();
 
+		List<Map.Entry<String, Integer>> entries = new LinkedList<Map.Entry<String, Integer>>(
+				s.entrySet());
+	
+		for(int i = entries.size() -1; i > 0; i--){
+			String top = String.valueOf(entries.size() - i);
+			returnedString += "TOP: #"+ top +" "+ entries.get(i).getKey()+ " has appeared " + entries.get(i).getValue() +" times\n";
+		}
+		
+		return returnedString;
+	}
+	
 	public static <K extends Comparable, V extends Comparable> Map<K, V> sortByValues(
 			Map<K, V> map, int memorySize) {
 		
@@ -86,6 +112,23 @@ public class FrequentPhrases {
 
 		return sortedMap;
 
+	}
+	
+	
+	public String getTextFileName() {
+		return textFileName;
+	}
+
+	public void setTextFileName(String textFileName) {
+		this.textFileName = textFileName;
+	}
+
+	public int getMemorySize() {
+		return memorySize;
+	}
+
+	public void setMemorySize(int memorySize) {
+		this.memorySize = memorySize;
 	}
 
 }

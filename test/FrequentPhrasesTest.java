@@ -23,8 +23,10 @@ public class FrequentPhrasesTest {
 
 	@Test
 	public void test() {
-			Map<String, Integer> result = FrequentPhrases.execute("sample.txt", 9);
+			FrequentPhrases frequentPhrases = new FrequentPhrases("sample.txt", 9);
+			Map<String, Integer> result = frequentPhrases.execute();
 			System.out.println(result.toString());
+			System.out.println(frequentPhrases.toString());
 	}
 	
 	

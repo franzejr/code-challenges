@@ -20,7 +20,7 @@ public class Palindrome {
 	}
 
 	/*
-	 * Function to check if a word is palindrome.
+	 * Iterative function to check if a word is palindrome.
 	 * 
 	 * Complexity: O(n)
 	 * 
