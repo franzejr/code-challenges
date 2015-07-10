@@ -78,3 +78,30 @@ jUnit was used, to run all the tests:
 mvn clean compile test
 ```
 Or using Eclipse, you can go directly to each file and run the test manually.
+
+
+### Output
+As output we will have:
+
+```
+WalletHub Code Challenge
+====================================
+Does the 123321 is palindrome?
+true
+Does the 12332221 is palindrome?
+false
+====================================
+The following array [ 1, 5, 9, 4 ] has how many 10-complementary pairs?
+It has 3 pairs
+====================================
+The File sample.txt has the following phrases
+TOP: #1    Olympics   2012    has appeared 4 times
+TOP: #2 Foobar Candy    has appeared 4 times
+TOP: #3    CNET    has appeared 3 times
+TOP: #4    PGA    has appeared 3 times
+TOP: #5    Something has appeared 2 times
+TOP: #6    PGA2    has appeared 1 times
+TOP: #7    Microsoft   Bing has appeared 1 times
+TOP: #8    Yahoo has appeared 1 times
+
+```
