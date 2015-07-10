@@ -18,11 +18,11 @@ import java.util.Map.Entry;
  * Frequent Phrases
  */
 public class FrequentPhrases {
-	
+
 	private String textFileName;
 	private int memorySize;
-	
-	public FrequentPhrases(String textFileName, int memorySize){
+
+	public FrequentPhrases(String textFileName, int memorySize) {
 		this.textFileName = textFileName;
 		this.memorySize = memorySize;
 	}
@@ -69,10 +69,22 @@ public class FrequentPhrases {
 			e.printStackTrace();
 		}
 
-
 		return sortByValues(frequents, memorySize);
 	}
-	
+
+	/*
+	 * It prints the Top ranked phrases in the file. 
+	 * It will print a text following the pattern below:
+	 * 
+	 * The File sample.txt has the following phrases:
+	 *  
+	 * TOP: #1 Olympics 2012 has appeared 4 times 
+	 * TOP: #2 Foobar Candy has appeared 4 times 
+	 * TOP: #3 CNET has appeared 3 times
+	 * 
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		String returnedString = "";
@@ -80,18 +92,19 @@ public class FrequentPhrases {
 
 		List<Map.Entry<String, Integer>> entries = new LinkedList<Map.Entry<String, Integer>>(
 				s.entrySet());
-	
-		for(int i = entries.size() -1; i > 0; i--){
+
+		for (int i = entries.size() - 1; i > 0; i--) {
 			String top = String.valueOf(entries.size() - i);
-			returnedString += "TOP: #"+ top +" "+ entries.get(i).getKey()+ " has appeared " + entries.get(i).getValue() +" times\n";
+			returnedString += "TOP: #" + top + " " + entries.get(i).getKey()
+					+ " has appeared " + entries.get(i).getValue() + " times\n";
 		}
-		
+
 		return returnedString;
 	}
-	
+
 	public static <K extends Comparable, V extends Comparable> Map<K, V> sortByValues(
 			Map<K, V> map, int memorySize) {
-		
+
 		List<Map.Entry<K, V>> entries = new LinkedList<Map.Entry<K, V>>(
 				map.entrySet());
 
@@ -108,13 +121,11 @@ public class FrequentPhrases {
 		for (Map.Entry<K, V> entry : entries) {
 			sortedMap.put(entry.getKey(), entry.getValue());
 		}
-		
 
 		return sortedMap;
 
 	}
-	
-	
+
 	public String getTextFileName() {
 		return textFileName;
 	}
