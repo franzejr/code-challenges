@@ -1,8 +1,6 @@
 # goHiring
 
-[Code Climate](https://codeclimate.com/github/franzejr/code-challenges/compare/goHiring)
-
-[![Build Status](https://travis-ci.org/franzejr/code-challenges.svg)](https://travis-ci.org/franzejr/code-challenges)
+[Code Climate](https://codeclimate.com/github/franzejr/code-challenges/compare/goHiring) [![Build Status](https://travis-ci.org/franzejr/code-challenges.svg)](https://travis-ci.org/franzejr/code-challenges)
 
 Simple API to help Hiring process.
 
