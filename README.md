@@ -1,6 +1,6 @@
 # goHiring
 
-[![Code Climate](https://codeclimate.com/github/franzejr/code-challenges/compare/badges/gpa.svg)](https://codeclimate.com/github/franzejr/code-challenges/compare/goHiring)
+[Code Climate](https://codeclimate.com/github/franzejr/code-challenges/compare/goHiring)
 
 Simple API to help Hiring process.
 
@@ -28,4 +28,4 @@ This API aims to be used in hiring processes.
 
 ## Contribute
 
-Please @gohiring, say what is important for you to build a good API =)
+Please [@gohiring](github.com/goHiring), say what is important for you to build a good API :bowtie:
