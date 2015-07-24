@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/favicon.ico)](https://codeclimate.com/github/franzejr/code-challenges/compare/goHiring)
 
 
-Simple API to help Hiring process.
+Simple RESTful API.
 
 ## Requirements
 
