@@ -10,6 +10,7 @@ Simple RESTful API.
 
 This API aims to be used in hiring processes.
 
+This API is not yet completed. There are only some important aspects I consider interesting.
 
 ##### Models
 
@@ -30,4 +31,4 @@ This API aims to be used in hiring processes.
 
 ## Contribute
 
-Please [@gohiring](github.com/goHiring), say what is important for you to build a good API :bowtie:
+Please [@gohiring](github.com/goHiring), say what is important for you to build a good API and help me to build that! :blush:
