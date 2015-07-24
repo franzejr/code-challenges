@@ -31,4 +31,4 @@ This API is not yet completed. There are only some important aspects I consider 
 
 ## Contribute
 
-Please [@gohiring](github.com/goHiring), say what is important for you to build a good API and help me to build that! :blush:
+[@gohiring](github.com/goHiring), please let me know what you think are the important pieces for your API. I will be happy to build it! :blush:
