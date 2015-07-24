@@ -1,6 +1,12 @@
-# code-challenges
+# goHiring
 
-Talk is cheap. Show me the code. :metal:
+Simple API to help Hiring process.
 
-* [Merchant Galaxy](../../tree/merchant-galaxy) - Ruby
-* [WalletHub Challenge](../../tree/wallet-hub-challenge) - Java and SQL
+## Requirements
+
+##### Models
+
+* Company
+*	Position
+* Vacancy
+*	Applicant
