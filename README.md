@@ -16,7 +16,7 @@ This API is not yet completed. There are only some important aspects I consider 
 
 * Company
 	- Company has many vacancies
-	- Comapny has many positions
+	- Company has many positions
 
 *	Position
 	- Has name and description
