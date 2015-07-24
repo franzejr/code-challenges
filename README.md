@@ -28,7 +28,3 @@ This API is not yet completed. There are only some important aspects I consider 
 *	Applicant
 	- Has many Vacancies
 
-
-## Contribute
-
-[@gohiring](github.com/goHiring), please let me know what you think are the important pieces for your API. I will be happy to build it! :blush:
