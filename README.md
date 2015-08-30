@@ -28,7 +28,7 @@ rake db:setup
 There is already a user for testing.
 
 ```
-e-mail: user@gmail.com
+e-mail: user1@gmail.com
 password: 123456678
 ```
 
