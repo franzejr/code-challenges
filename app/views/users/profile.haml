@@ -1,0 +1,18 @@
+
+= render "users/user", user: @user
+- if user_signed_in?
+  - if @user == current_user
+    %small
+      = link_to "Edit Profile", edit_user_registration_url
+  - else
+    %small
+      %button.btn-group-xs
+        = follow_or_unfollow(@user)
+
+
+- if !@user.posts.empty?
+  #posts
+    %h4 Posts
+  = render partial: 'posts/post', collection: @user.posts.reverse
+- else
+  %h6 There is no posts yet

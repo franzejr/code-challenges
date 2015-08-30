@@ -1,0 +1,9 @@
+<%flash.each do |type, msg|%>
+  var msg = "<%=msg%>";
+  var type = "<%=type%>"
+
+  flash_message = "<div class='flash_msg " + type + "'> " + msg + " </div>";
+  $("body").prepend(flash_message);
+<%end%>
+$(".flash_msg").miniNotification();
+<%flash.discard%>

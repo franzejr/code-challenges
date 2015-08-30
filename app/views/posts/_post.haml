@@ -1,0 +1,16 @@
+.well.well-sm.media
+  .media-left
+    .pull-left.col-sm-2.text-center
+      = get_gravatar(post.user,48)
+      #username
+        = link_to post.user.username, profile_user_url(post.user)
+      #time_ago
+    .media-body.col-sm-6
+      %a{ href: post_path(post.id)}
+        %small.timeago{:title => post.created_at.getutc.iso8601}
+          = post.created_at.to_s
+      %p.message
+        = post.message
+    - if current_user == post.user
+      .pull-right
+        = link_to "x",post_path(post.id), remote: true ,'data-method' => :delete, :class => "delete", :confirm => "Are you sure ?"

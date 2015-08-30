@@ -1,0 +1,6 @@
+%h2 Users
+
+
+- @users.each do |user|
+  = link_to(get_gravatar(user,64), profile_user_path(user.id))
+

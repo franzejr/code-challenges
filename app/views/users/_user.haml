@@ -1,0 +1,15 @@
+.row
+  #img.pull-left
+    = get_gravatar(user)
+    .pull-right
+      .col-xs-12
+        #name
+          %h2
+            = link_to user.username, profile_user_url(user.id)
+        #email
+          %strong E-mail:
+          = user.email
+          %strong | Following:
+          =user.followings_count
+          %strong | Followers:
+          = user.followers_count

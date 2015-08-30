@@ -1,0 +1,9 @@
+
+%h2 Search results
+
+- if !@users.empty?
+  - @users.each do |u|
+    .well
+      = render "users/user", user: u
+- else
+  %h6 We didn't find users with that criteria

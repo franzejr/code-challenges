@@ -1,0 +1,46 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.flash_msg{
+  display: none;
+    position: fixed;
+    cursor: pointer;
+    width: 100%;
+    background: #e74c3c;
+    text-align: center;
+    height: 69px;
+    z-index:9999;
+
+    .inner{
+    color: #fff;
+    line-height: 69px;
+    font-size: 1.4em;
+    max-width: 1351px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    a.close{
+      float: right;
+      color: #fff;
+    }
+    a.close:hover{
+      color: darken(#fff, 20%);
+    }
+
+    }
+}
+
+.flash_msg.notice,
+.flash_msg.success{
+  background: #049372;
+}
+
+#notifications{
+  .single_notification_container{
+    p.avatar_box{
+      margin-right: 10px;
+    }
+  }
+}

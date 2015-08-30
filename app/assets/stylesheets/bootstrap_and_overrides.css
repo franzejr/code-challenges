@@ -1,0 +1,21 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+.box_post{
+  font-size: 16px;
+  color: #777;
+}
+
+.timeago{
+  font-size: 13px;
+  color: #8899a6;
+}
+
+.message{
+  font-size: 14px;
+}

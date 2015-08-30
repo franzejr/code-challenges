@@ -1,0 +1,10 @@
+
+%h2 Notifications
+
+- @notifications.each do |n|
+  %ul.nav.nav-pills
+    %li
+      %small.timeago{:title => n.created_at.getutc.iso8601}
+        = n.created_at.to_s
+      = "#{n.notificable.username} start following you"
+

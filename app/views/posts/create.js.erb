@@ -1,0 +1,4 @@
+$("input[name=message]").first().val("")
+$("#posts").html("<%= escape_javascript(render 'posts/posts', posts: @last_posts) %>")
+$(".character-count").first().html(140)
+<%= render "util/ajax_flash_messages", flash: flash %>

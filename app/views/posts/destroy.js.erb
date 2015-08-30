@@ -1,0 +1,2 @@
+$("#posts").html("<%= escape_javascript(render 'posts/posts', posts: @last_posts) %>")
+<%= render "util/ajax_flash_messages", flash: flash %>
