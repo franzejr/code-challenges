@@ -1,4 +1,8 @@
-# blacklist
+language: ruby
+rvm:
+  - 2.1.5
+# uncomment this line if your project needs to run something other than `rake`:
+# script: bundle exec rspec spec
  branches:
    except:
-    - master
+       - master
