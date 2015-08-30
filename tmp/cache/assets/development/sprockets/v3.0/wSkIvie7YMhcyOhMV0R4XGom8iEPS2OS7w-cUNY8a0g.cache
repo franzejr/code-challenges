@@ -1,0 +1,27 @@
+I"
+(function() {
+  $(function() {
+    var supportOnInput;
+    supportOnInput = "oninput" in document.createElement("input");
+    return $("input[maxlength]").each(function() {
+      var $this, el, maxLength;
+      $this = $(this);
+      maxLength = parseInt($this.attr("maxlength"));
+      $this.attr("maxlength", null);
+      el = $("<span class=\"character-count badge pull-right\">" + maxLength + "</span><br/>");
+      el.insertAfter($this);
+      return $this.bind((supportOnInput ? "input" : "keyup"), function() {
+        var cc;
+        cc = $this.val().length;
+        el.text(maxLength - cc);
+        if (maxLength < cc) {
+          return el.css("color", "red");
+        } else {
+          return el.css("color", null);
+        }
+      });
+    });
+  });
+
+}).call(this);
+:ET
